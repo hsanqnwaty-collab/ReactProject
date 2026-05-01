@@ -1,0 +1,51 @@
+.posts-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.post-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Image */
+.post-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Actions */
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.post-actions button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.post-actions button:hover {
+  opacity: 0.7;
+}

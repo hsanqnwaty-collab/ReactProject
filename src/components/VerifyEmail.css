@@ -1,0 +1,57 @@
+/* خلفية الصفحة */
+.verify-page {
+  min-height: 100vh;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* الكارد */
+.verify-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* العنوان */
+.verify-card h2 {
+  margin-bottom: 20px;
+}
+
+/* الإيميل */
+.verify-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* input */
+.verify-card input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+/* زر */
+.verify-card button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.verify-card button:hover {
+  opacity: 0.9;
+}
