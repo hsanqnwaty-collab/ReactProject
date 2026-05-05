@@ -19,7 +19,6 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/verify" element={<VerifyEmail />} />
       </Routes>
-
     </Router>
   );
 }
