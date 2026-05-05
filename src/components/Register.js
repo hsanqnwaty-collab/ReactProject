@@ -15,7 +15,6 @@ function Register() {
     }
 
     setError("");
-    console.log("Registered successfully"); // بدل alert
   };
 
   return (
@@ -24,7 +23,6 @@ function Register() {
 
       <form onSubmit={handleSubmit}>
         <input
-          data-testid="email-input"
           type="text"
           placeholder="Enter email"
           value={email}

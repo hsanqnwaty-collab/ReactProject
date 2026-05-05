@@ -2,28 +2,23 @@ name: React CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-  test:
+  build-and-test:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    env:
+      CI: true
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: "npm"
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test -- --watchAll=false
-
-      - name: Build
-        run: npm run build
+      - run: npm ci
+      - run: npm test -- --watchAll=false
+      - run: npm run build
