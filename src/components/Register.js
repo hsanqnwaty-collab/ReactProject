@@ -1,45 +1,40 @@
-import "./Register.css";
-
-import { useNavigate } from "react-router-dom"; // ⭐ مهم
 import { useState } from "react";
 
 function Register() {
-  const navigate = useNavigate(); // ⭐ هون
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
 
-  const [form, setForm] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: ""
-  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // ⭐ هون تحط الكود تبعك
-  const handleRegister = () => {
-    if (form.password !== form.confirmPassword) {
-      alert("Passwords do not match");
+    if (!regex.test(email)) {
+      setError("Invalid email");
       return;
     }
 
-    navigate("/verify"); // ينقله لصفحة التحقق
+    setError("");
+    console.log("Registered successfully"); // بدل alert
   };
 
   return (
-    <div className="register-container">
-      <div className="register-card">
-        <h2>Create Account ✨</h2>
+    <div>
+      <h2>Register</h2>
 
-        <input name="username" placeholder="Username" onChange={handleChange} />
-        <input name="email" placeholder="Email" onChange={handleChange} />
-        <input name="password" type="password" placeholder="Password" onChange={handleChange} />
-        <input name="confirmPassword" type="password" placeholder="Confirm Password" onChange={handleChange} />
+      <form onSubmit={handleSubmit}>
+        <input
+          data-testid="email-input"
+          type="text"
+          placeholder="Enter email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-        {/* ⭐ لازم تربطه بالزر */}
-        <button onClick={handleRegister}>Register</button>
-      </div>
+        {error && <p>{error}</p>}
+
+        <button type="submit">Register</button>
+      </form>
     </div>
   );
 }

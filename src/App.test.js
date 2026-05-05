@@ -1,6 +1,20 @@
-import App from './App';
-import { render } from '@testing-library/react';
+import { render, screen } from "@testing-library/react";
 
-test('renders app without crashing', () => {
-  render(<App />);
+import App from "./App";
+import { MemoryRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
+
+test("navigate to register page", async () => {
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
+
+  const link = screen.getByRole("link", { name: /register/i });
+  await userEvent.click(link);
+
+  expect(
+    await screen.findByPlaceholderText(/enter email/i)
+  ).toBeInTheDocument();
 });
